@@ -1,8 +1,13 @@
 import React from 'react';
+import Header from './components/Header';
+import GlobalStyle from './assets/styles/global';
+import Home from './views/Home';
 
 const App = () => (
   <>
-    <h1>Inicio</h1>
+    <Header />
+    <Home />
+    <GlobalStyle />
   </>
 );
 
