@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Input } from 'semantic-ui-react';
+
+/** STYLES */
 import { Container } from './styles';
 
 export const InputText = ({ field, form, ...props }) => {

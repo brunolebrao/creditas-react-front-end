@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container } from './styles';
+
+/** STYLES */
+import { Container, Box } from './styles';
 
 export const InputRange = ({ field, form: { setFieldValue }, ...props }) => {
   const { min, max, step } = props;
@@ -16,10 +18,10 @@ export const InputRange = ({ field, form: { setFieldValue }, ...props }) => {
         {...field}
         onChange={(e) => setFieldValue([name], e.target.value)}
       />
-      <div>
-        <span>{min}</span>
-        <span>{max}</span>
-      </div>
+      <Box>
+        <div>{min}</div>
+        <div>{max}</div>
+      </Box>
     </Container>
   );
 };
@@ -27,7 +29,6 @@ export const InputRange = ({ field, form: { setFieldValue }, ...props }) => {
 InputRange.propTypes = {
   field: PropTypes.object.isRequired,
   form: PropTypes.object.isRequired,
-  label: PropTypes.string.isRequired,
   id: PropTypes.string,
   min: PropTypes.number,
   max: PropTypes.number,

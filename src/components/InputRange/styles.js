@@ -5,4 +5,13 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 194px;
+  input {
+    width: 100%;
+  }
+`;
+export const Box = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 `;

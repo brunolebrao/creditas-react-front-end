@@ -1,4 +1,6 @@
 import React from 'react';
+
+/** IMAGES */
 import logo from '../../assets/images/logo.svg';
 
 /** STYLES */

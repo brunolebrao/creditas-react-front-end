@@ -11,10 +11,10 @@ export default createGlobalStyle`
   }
   html, body, #root {
     height: 100%;
+    background: ${colors.concrete};
   }
   body {
     font: 14px 'ubuntu', sans-serif;
-    background: ${colors.concrete};
     -webkit-font-smoothing: antialiased !important;
   }
 `;

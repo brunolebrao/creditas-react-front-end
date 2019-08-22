@@ -3,9 +3,7 @@ import { Formik, Field } from 'formik';
 import { Grid } from 'semantic-ui-react';
 
 /** STYLES */
-import {
-  Container, Title, BoxContainer, Box, BoxBody, BoxCenter,
-} from './styles';
+import { Container } from './styles';
 
 /** TEXTS */
 import { texts } from '../../assets/texts';
@@ -21,8 +19,6 @@ import { InstallmentValue } from '../../components/InstallmentValue';
 
 const Home = () => (
   <Container>
-    <Title>{texts.bodyTitle}</Title>
-
     <Formik
       initialValues={{
         installment: '',
@@ -36,50 +32,57 @@ const Home = () => (
           actions.setSubmitting(false);
         }, 1000);
       }}
-      render={() => (
-        <form>
-          <BoxContainer>
-            <Box direction="column" justify="space-around">
-              <BoxBody>
-                <Field
-                  id="installment"
-                  name="installment"
-                  options={installments}
-                  label={texts.installment}
-                  component={SelectText}
-                />
-                <Field
-                  id="warranty"
-                  name="warranty"
-                  options={warranties}
-                  label={texts.warranty}
-                  component={SelectText}
-                />
-              </BoxBody>
-              <BoxBody>
-                <Field
-                  id="warrantyValue"
-                  label={texts.warrantyValue}
-                  name="warrantyValue"
-                  component={InputText}
-                />
-                <Field
-                  id="warrantyValue"
-                  name="warrantyValue"
-                  min={12000.0}
-                  max={24000.0}
-                  step={10}
-                  component={InputRange}
-                />
-              </BoxBody>
-              <BoxBody>
-                <Field
-                  id="loanAmount"
-                  label={texts.loanAmount}
-                  name="loanAmount"
-                  component={InputText}
-                />
-                <BoxCenter>
+      render={({ handleSubmit }) => (
+        <form onSubmit={handleSubmit}>
+          <Grid width={12} centered>
+            <header>
+              <h1>
+                <strong>{texts.bodyTitle}</strong>
+              </h1>
+            </header>
+          </Grid>
+          <Grid columns={2} divided centered>
+            <Grid.Row stretched>
+              <Grid.Column width={5} textAlign="justified">
+                <main>
+                  <Field
+                    id="installment"
+                    name="installment"
+                    options={installments}
+                    label={texts.installment}
+                    component={SelectText}
+                  />
+                  <Field
+                    id="warranty"
+                    name="warranty"
+                    options={warranties}
+                    label={texts.warranty}
+                    component={SelectText}
+                  />
+                </main>
+                <main>
+                  <Field
+                    id="warrantyValue"
+                    label={texts.warrantyValue}
+                    name="warrantyValue"
+                    component={InputText}
+                  />
+                  <Field
+                    id="warrantyValue"
+                    name="warrantyValue"
+                    min={12000.0}
+                    max={24000.0}
+                    step={10}
+                    component={InputRange}
+                  />
+                </main>
+                <main>
+                  <Field
+                    id="loanAmount"
+                    label={texts.loanAmount}
+                    name="loanAmount"
+                    component={InputText}
+                  />
                   <Field
                     id="loanAmount"
                     name="loanAmount"
@@ -88,13 +91,13 @@ const Home = () => (
                     step={10}
                     component={InputRange}
                   />
-                </BoxCenter>
-              </BoxBody>
-            </Box>
-            <Box>
-              <InstallmentValue />
-            </Box>
-          </BoxContainer>
+                </main>
+              </Grid.Column>
+              <Grid.Column width={3}>
+                <InstallmentValue />
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
         </form>
       )}
     />

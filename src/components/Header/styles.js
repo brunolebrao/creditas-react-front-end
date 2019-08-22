@@ -8,7 +8,7 @@ export const Container = styled.div`
   background: ${colors.mountainMeadow};
   padding: 20px 100px 20px 100px;
   img {
-    width: 200px;
+    width: 180px;
   }
   button {
     background: transparent;
