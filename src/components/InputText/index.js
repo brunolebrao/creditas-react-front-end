@@ -6,11 +6,11 @@ import { Input } from 'semantic-ui-react';
 import { Container } from './styles';
 
 export const InputText = ({ field, form, ...props }) => {
-  const { id, label } = props;
+  const { id, label, type } = props;
   return (
     <Container>
       <label htmlFor={id}>{label}</label>
-      <Input id={id} type="text" {...field} />
+      <Input id={id} type={type} {...field} />
     </Container>
   );
 };
@@ -20,4 +20,5 @@ InputText.propTypes = {
   form: PropTypes.object.isRequired,
   label: PropTypes.string.isRequired,
   id: PropTypes.string,
+  type: PropTypes.string.isRequired,
 };
